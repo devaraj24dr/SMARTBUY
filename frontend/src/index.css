@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Sora:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#09090f] text-[#f0f0f8] antialiased selection:bg-[#ff6b35] selection:text-white;
+    font-family: 'Sora', sans-serif;
+  }
+  
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-[#11111c] border border-[#22223a] rounded-2xl p-4 shadow-lg hover:shadow-[#ff6b35]/5 transition-all duration-300;
+  }
+  
+  .glass-bar {
+    @apply bg-[#09090f]/70 backdrop-blur-xl border-t border-[#22223a] shadow-[0_-10px_40px_rgba(0,0,0,0.5)];
+  }
+  
+  .glass-header {
+    @apply bg-[#09090f]/70 backdrop-blur-xl border-b border-[#22223a] shadow-[0_10px_40px_rgba(0,0,0,0.5)];
+  }
+
+  .btn-primary {
+    @apply bg-[#ff6b35] text-white font-bold rounded-xl active:scale-95 transition-transform shadow-[0_4px_20px_rgba(255,107,53,0.3)] hover:shadow-[0_4px_25px_rgba(255,107,53,0.5)];
+  }
+
+  .btn-secondary {
+    @apply bg-[#22223a] text-white font-bold rounded-xl hover:bg-[#333350] active:scale-95 transition-colors;
+  }
+}
+
+/* Custom Scrollbar for sleekness */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #22223a;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff6b35;
+}

@@ -1,0 +1,26 @@
+{
+  "home": {
+    "orderFood": "Order Food",
+    "supermarket": "Supermarket",
+    "kiosk": "Self Kiosk",
+    "myOrders": "My Orders"
+  },
+  "menu": {
+    "addToCart": "Add",
+    "viewCart": "View Cart",
+    "items": "items",
+    "all": "All"
+  },
+  "cart": {
+    "title": "Your Order",
+    "total": "Total",
+    "payNow": "Pay Now",
+    "empty": "Your cart is empty",
+    "gst": "GST (5%)"
+  },
+  "status": {
+    "received": "Order Received",
+    "preparing": "Preparing...",
+    "ready": "Ready to Collect!"
+  }
+}
