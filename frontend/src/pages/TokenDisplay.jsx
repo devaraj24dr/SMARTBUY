@@ -6,15 +6,16 @@ export default function TokenDisplay() {
   const [preparingTokens, setPreparingTokens] = useState([]);
 
   useEffect(() => {
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000';
     // Initial fetch of live orders
-    fetch('http://localhost:4000/api/orders/live')
+    fetch(`${API_URL}/api/orders/live`)
       .then(r => r.json())
       .then(data => {
         setReadyTokens(data.filter(o => o.status === 'ready').map(o => o.tokenNumber));
         setPreparingTokens(data.filter(o => o.status === 'preparing').map(o => o.tokenNumber));
       });
 
-    const socket = io('http://localhost:4000');
+    const socket = io(import.meta.env.VITE_API_URL || 'http://localhost:4000');
     socket.on('connect', () => socket.emit('join_token_display'));
 
     socket.on('token_called', (data) => {

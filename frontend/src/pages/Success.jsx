@@ -13,7 +13,7 @@ export default function Success() {
 
   useEffect(() => {
     // Connect to WebSocket
-    const socket = io('http://localhost:4000');
+    const socket = io(import.meta.env.VITE_API_URL || 'http://localhost:4000');
     
     socket.on('connect', () => {
       socket.emit('join_order_room', orderId);

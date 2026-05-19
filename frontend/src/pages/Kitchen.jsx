@@ -5,12 +5,13 @@ export default function Kitchen() {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000';
     // Fetch initial live orders
-    fetch('http://localhost:4000/api/orders/live')
+    fetch(`${API_URL}/api/orders/live`)
       .then(r => r.json())
       .then(data => setOrders(data));
 
-    const socket = io('http://localhost:4000');
+    const socket = io(API_URL);
     socket.on('connect', () => socket.emit('join_kitchen'));
     
     socket.on('new_order', (order) => {
@@ -31,7 +32,8 @@ export default function Kitchen() {
   }, []);
 
   const updateStatus = (id, status) => {
-    fetch(`http://localhost:4000/api/orders/${id}/status`, {
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000';
+    fetch(`${API_URL}/api/orders/${id}/status`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ status })
